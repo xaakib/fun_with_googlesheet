@@ -12,12 +12,26 @@ class FormcController {
   static const STATUS_SUCCESS = "SUCCESS";
   FormcController(this.callback);
   void submiteForm(FeedbackForm feedbackForm) async {
-    try {
-      await http.get(URL + feedbackForm.toParams()).then((response) {
-        callback(convert.jsonDecode(response.body)['status']);
-      });
-    } catch (e) {
-      print(e);
-    }
+    http.post(
+      'https://jsonplaceholder.typicode.com/albums',
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      // body: jsonEncode(<String, String>{
+      //   'name': _name
+      // }),
+    );
   }
+}
+
+class FeedbackForm {
+  String _name;
+  String _email;
+  String _mobileNum;
+  String _feedBack;
+
+  FeedbackForm(this._name, this._email, this._feedBack, this._mobileNum);
+
+  String toParams() =>
+      "?name=$_name&email=$_email&mobileNum=$_mobileNum&feedback$_feedBack";
 }

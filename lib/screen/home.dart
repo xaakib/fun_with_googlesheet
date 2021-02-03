@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:fun_with_googlesheet/controller/controller.dart';
-import 'package:fun_with_googlesheet/model/feedback.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -12,6 +14,23 @@ class HomeScreen extends StatelessWidget {
     TextEditingController emailController = TextEditingController();
     TextEditingController phoneControlller = TextEditingController();
     TextEditingController feedBackController = TextEditingController();
+    var url =
+        'https://script.google.com/macros/s/AKfycbw4LX-Dtl_085HhXiftuXyK3QtmDentSGhCjkLJ3kl6xqUoGP4Jli4kGg/exec';
+
+    Future<http.Response> sendData() {
+      return http.post(
+        url,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'name': 'Xaaakihb',
+          'email': 'nasimulhasan513@gmail.com',
+          'mobileno': '01646915232',
+          'feedback': 'this is a very good code'
+        }),
+      );
+    }
 
     void _submitForm() {
       if (_formKey.currentState.validate()) {
@@ -99,7 +118,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 RaisedButton(
                   onPressed: () {
-                    _submitForm();
+                    sendData();
                     print("Clicked");
                   },
                   child: Text("Submite"),
