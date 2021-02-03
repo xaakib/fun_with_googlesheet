@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:fun_with_googlesheet/controller/controller.dart';
 import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatelessWidget {
@@ -27,29 +26,29 @@ class HomeScreen extends StatelessWidget {
           'name': 'Xaaakihb',
           'email': 'nasimulhasan513@gmail.com',
           'mobileno': '01646915232',
-          'feedback': 'this is a very good code'
+          'feedback': 'dddd'
         }),
       );
     }
 
-    void _submitForm() {
-      if (_formKey.currentState.validate()) {
-        FeedbackForm feedbackForm = FeedbackForm(
-            nameController.text,
-            emailController.text,
-            feedBackController.text,
-            phoneControlller.text);
-        FormcController formcController = FormcController((String response) {
-          print(response);
-          if (response == FormcController.STATUS_SUCCESS) {
-            print("Success");
-          } else {
-            print("Failed");
-          }
-        });
-        formcController.submiteForm(feedbackForm);
-      }
-    }
+    // void _submitForm() {
+    //   if (_formKey.currentState.validate()) {
+    //     FeedbackForm feedbackForm = FeedbackForm(
+    //         nameController.text,
+    //         emailController.text,
+    //         feedBackController.text,
+    //         phoneControlller.text);
+    //     FormcController formcController = FormcController((String response) {
+    //       print(response);
+    //       if (response == FormcController.STATUS_SUCCESS) {
+    //         print("Success");
+    //       } else {
+    //         print("Failed");
+    //       }
+    //     });
+    //     formcController.submiteForm(feedbackForm);
+    //   }
+    // }
 
     // showSnackBar(String message) {
     //   final snakbar = SnackBar(content: Text(message));
@@ -58,7 +57,6 @@ class HomeScreen extends StatelessWidget {
     // }
 
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("GoogleSheet Fun"),
       ),
