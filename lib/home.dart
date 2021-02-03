@@ -7,12 +7,9 @@ import 'package:http/http.dart ' as http;
 
 class HomeScreen extends StatelessWidget {
   HttpService httpService = HttpService();
-
   final TextEditingController emailControllers = TextEditingController();
 
-  emailFAn() {
-    return Data(name: emailControllers.text);
-  }
+  
 
   @override
   Widget build(BuildContext context) {
