@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fun_with_googlesheet/screen/home.dart';
+import 'package:fun_with_googlesheet/home.dart';
 
 void main() {
   runApp(MyApp());
