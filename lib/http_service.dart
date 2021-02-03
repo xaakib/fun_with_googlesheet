@@ -20,4 +20,22 @@ class HttpService {
       }),
     );
   }
+
+  var urls =
+      'https://script.google.com/macros/s/AKfycbw4LX-Dtl_085HhXiftuXyK3QtmDentSGhCjkLJ3kl6xqUoGP4Jli4kGg/exec';
+
+  Future<http.Response> sendssData() {
+    return http.post(
+      urls,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'name': name,
+        'email': 'nasimulhasan513@gmail.com',
+        'mobileno': '01646915232',
+        'feedback': 'dddd'
+      }),
+    );
+  }
 }
